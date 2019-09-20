@@ -1,0 +1,25 @@
+{
+  "login": {
+    "title": "Login",
+    "username": {
+      "name": "Username",
+      "placeholder": "username here",
+      "rules": {
+        "required": "username is required!"
+      }
+    },
+    "password": {
+      "name": "Password",
+      "placeholder": "password here",
+      "rules": {
+        "required": "password is required!"
+      }
+    },
+    "OK": "OK!",
+    "dialog": {
+      "title": "Warning",
+      "message": "Username & Password",
+      "OK": "OK"
+    }
+  }
+}
