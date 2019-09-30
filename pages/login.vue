@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <el-form ref="loginForm" :model="form" :rules="rules" label-width="80px" class="login-box">
+    <el-form ref="loginForm" :model="form" :rules="rules" label-width="80px" class="login-form">
       <h3 class="login-title">{{ $t('login.title') }}</h3>
       <el-form-item :label="$t('login.username.name')" prop="username">
-        <el-input v-model="form.username" type="text" :placeholder="$t('login.username.placeholder')" />
+        <el-input v-model="form.username" type="text" :placeholder="$t('login.username.placeholder')" prefix-icon="el-icon-user" />
       </el-form-item>
       <el-form-item :label="$t('login.password.name')" prop="password">
-        <el-input v-model="form.password" type="password" :placeholder="$t('login.password.placeholder')" />
+        <el-input v-model="form.password" type="password" :placeholder="$t('login.password.placeholder')" prefix-icon="el-icon-unlock" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit('loginForm')">{{ $t('login.OK') }}</el-button>
@@ -68,14 +68,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.login-box {
+.login-form {
   border: 1px solid #DCDFE6;
   width: 350px;
   margin: 180px auto;

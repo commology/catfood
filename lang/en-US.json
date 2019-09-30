@@ -1,6 +1,6 @@
 {
   "login": {
-    "title": "Login",
+    "title": "User Login",
     "username": {
       "name": "Username",
       "placeholder": "username here",
@@ -15,7 +15,7 @@
         "required": "password is required!"
       }
     },
-    "OK": "OK!",
+    "OK": "LOGIN",
     "dialog": {
       "title": "Warning",
       "message": "Username & Password",
