@@ -1,3 +1,25 @@
 {
-  "welcome": "你好"
+  "login": {
+    "title": "登录",
+    "username": {
+      "name": "用户",
+      "placeholder": "请输入用户名",
+      "rules": {
+        "required": "用户名必填"
+      }
+    },
+    "password": {
+      "name": "密码",
+      "placeholder": "请输入密码",
+      "rules": {
+        "required": "密码必填"
+      }
+    },
+    "OK": "登录",
+    "dialog": {
+      "title": "警告",
+      "message": "用户名密码必填",
+      "OK": "好的"
+    }
+  }
 }

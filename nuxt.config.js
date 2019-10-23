@@ -75,16 +75,47 @@ module.exports = {
     extend(config, ctx) { }
   },
 
+  router: {
+    //middleware: 'auth'
+  },
+
+  /*
+  ** Add server middleware
+  ** Nuxt.js uses `connect` module as server
+  ** So most of express middleware works with nuxt.js server middleware
+  */
+  serverMiddleware: [
+    // Auth middleware
+    // We add /auth/login & /auth/logout routes
+    '~/auth'
+  ],
+
   /* nuxt-i18n */
   i18n: {
-    locales: ['en-US', 'zh-CN'],
-    defaultLocale: 'en-US',
-    vueI18n: {
-      fallbackLocale: 'en-US',
-      messages: {
-        'en-US': require('./lang/en-US.json'),
-        'zh-CN': require('./lang/zh-CN.json')
+    locales: [
+      {
+        name: 'US English',
+        code: 'en',
+        iso: 'en-US',
+        file: 'en-US.json'
+      },
+      {
+        name: 'Simplified Chinese',
+        code: 'zh',
+        iso: 'zh-CN',
+        file: 'zh-CN.json'
       }
-    }
+    ],
+    defaultLocale: 'en',
+    seo: true,
+    lazy: true,
+    langDir: 'locales/',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      alwaysRedirect: true,
+      fallbackLocale: 'en'
+    },
+    vueI18n: {}
   }
 }

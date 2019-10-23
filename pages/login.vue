@@ -1,6 +1,11 @@
 <template>
   <div class="container">
-    <el-form ref="loginForm" :model="form" :rules="rules" label-width="80px" class="login-form">
+    <el-form
+      ref="loginForm"
+      :model="form"
+      :rules="rules"
+      label-width="80px"
+      class="login-form">
       <h3 class="login-title">{{ $t('login.title') }}</h3>
       <el-form-item :label="$t('login.username.name')" prop="username">
         <el-input v-model="form.username" type="text" :placeholder="$t('login.username.placeholder')" prefix-icon="el-icon-user" />
@@ -33,10 +38,10 @@ export default {
     return {
       form: {
         username: '',
-        password: ''
+        password: '',
+        error: null
       },
 
-      // 表单验证，需要在 el-form-item 元素中增加 prop 属性
       rules: {
         username: [
           { required: true, message: this.$t('login.username.rules.required'), trigger: 'blur' }
@@ -46,23 +51,42 @@ export default {
         ]
       },
 
-      // 对话框显示和隐藏
       dialogVisible: false
     }
   },
   methods: {
     onSubmit(formName) {
-      // 为表单绑定验证功能
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          // 使用 vue-router 路由到指定页面，该方式称之为编程式导航
+          this.login();
           this.$router.push('/main');
         } else {
           this.dialogVisible = true;
           return false;
         }
       });
-    }
+    },
+    async login () {
+      try {
+        await this.$store.dispatch('login', {
+          username: this.form.username,
+          password: this.form.password
+        })
+        this.form.username = ''
+        this.form.password = ''
+        this.form.error = null
+      } catch (e) {
+        this.form.error = e.message
+      }
+    },
+    async logout () {
+      try {
+        await this.$store.dispatch('logout')
+      } catch (e) {
+        this.form.error = e.message
+      }
+    },
+    handleClose () {}
   }
 }
 </script>

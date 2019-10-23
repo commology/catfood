@@ -2,7 +2,7 @@
   <div class="container">
     <el-container class="outer-container">
       <el-aside width="auto" style="background-color: rgb(238, 241, 246)">
-        <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="true">
+        <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :collapse="true">
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
@@ -69,6 +69,7 @@
 <script>
 export default {
   name: 'Main',
+  middleware: 'auth',
   data() {
     const item = {
       date: '2016-05-02',
